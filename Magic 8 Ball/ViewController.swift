@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         println("My age is \(age)")
         var name = "Pamela Needle"
         println(name)
-        let responses = ["Not a chance!","Perhaps","Most definetely","Maybe","For sure","Yeah right!"]
+        let responses = ["Not a chance!","Perhaps","Most definetely","Maybe","For sure","Yeah right!", "😳"]
         let model = EightBallModel(extraResponseArray:responses)
         println("Will I get full marks for this lab?")
         println(model.generateResponse())
@@ -25,6 +25,9 @@ class ViewController: UIViewController {
         println(model.generateResponse())
         println("Will I end up becoming a cat person when I get old?")
         println(model.generateResponse())
+        
+        debugPrintln(model)
+        println(model)
         // Do any additional setup after loading the view, typically from a nib.
     }
 

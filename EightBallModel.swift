@@ -44,7 +44,7 @@ var description : String {
     return responseStrings
 }
 
-var debugDescription :String {
+var debugDescription : String {
     //Use a for loop to create a string based on the elements inside of response array
     //Make sure the string starts with the word "Debug:"
     var debugStrings = "Debug:"
