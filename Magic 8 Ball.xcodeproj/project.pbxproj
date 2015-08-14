@@ -14,6 +14,8 @@
 		6D7F55AF1B79E02A00811CC6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D7F55AD1B79E02A00811CC6 /* LaunchScreen.xib */; };
 		6D7F55BB1B79E02A00811CC6 /* Magic_8_BallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7F55BA1B79E02A00811CC6 /* Magic_8_BallTests.swift */; };
 		6D7F55C51B79EBB900811CC6 /* EightBallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7F55C41B79EBB900811CC6 /* EightBallModel.swift */; };
+		6D7F55C91B7C66DA00811CC6 /* Lab 2 resources in Resources */ = {isa = PBXBuildFile; fileRef = 6D7F55C81B7C66D900811CC6 /* Lab 2 resources */; };
+		6D7F55CB1B7C68E000811CC6 /* Lab 2 resources in Resources */ = {isa = PBXBuildFile; fileRef = 6D7F55CA1B7C68E000811CC6 /* Lab 2 resources */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		6D7F55B91B79E02A00811CC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D7F55BA1B79E02A00811CC6 /* Magic_8_BallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magic_8_BallTests.swift; sourceTree = "<group>"; };
 		6D7F55C41B79EBB900811CC6 /* EightBallModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EightBallModel.swift; sourceTree = "<group>"; };
+		6D7F55C81B7C66D900811CC6 /* Lab 2 resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Lab 2 resources"; path = "../../../Lab 2 resources"; sourceTree = "<group>"; };
+		6D7F55CA1B7C68E000811CC6 /* Lab 2 resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Lab 2 resources"; path = "../../../Lab 2 resources"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 				6D7F55A41B79E02A00811CC6 /* AppDelegate.swift */,
 				6D7F55A61B79E02A00811CC6 /* ViewController.swift */,
 				6D7F55A81B79E02A00811CC6 /* Main.storyboard */,
+				6D7F55CA1B7C68E000811CC6 /* Lab 2 resources */,
 				6D7F55AB1B79E02A00811CC6 /* Images.xcassets */,
 				6D7F55AD1B79E02A00811CC6 /* LaunchScreen.xib */,
 				6D7F55A21B79E02A00811CC6 /* Supporting Files */,
@@ -93,6 +98,7 @@
 		6D7F55A21B79E02A00811CC6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6D7F55C81B7C66D900811CC6 /* Lab 2 resources */,
 				6D7F55A31B79E02A00811CC6 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -198,6 +204,8 @@
 				6D7F55AA1B79E02A00811CC6 /* Main.storyboard in Resources */,
 				6D7F55AF1B79E02A00811CC6 /* LaunchScreen.xib in Resources */,
 				6D7F55AC1B79E02A00811CC6 /* Images.xcassets in Resources */,
+				6D7F55CB1B7C68E000811CC6 /* Lab 2 resources in Resources */,
+				6D7F55C91B7C66DA00811CC6 /* Lab 2 resources in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +421,7 @@
 				6D7F55C01B79E02A00811CC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6D7F55C11B79E02A00811CC6 /* Build configuration list for PBXNativeTarget "Magic 8 BallTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +430,7 @@
 				6D7F55C31B79E02A00811CC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
