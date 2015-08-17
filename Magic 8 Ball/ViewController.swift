@@ -48,6 +48,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func newResponse() {
+        
         UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
             self.answer.alpha = 0.0
             }, completion: {
@@ -81,17 +82,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
             break
             
         }
-    
-       /* var fadeAnimation = CABasicAnimation(keyPath: "opacity")
-        fadeAnimation.fromValue = 0.0
-        fadeAnimation.toValue = 1.0
-        fadeAnimation.duration = 3.0
-        ques.layer.addAnimation(fadeAnimation)*/
     }
+    
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         //hides keyboard
-        textField.resignFirstResponder()
+        ques.resignFirstResponder()
+        newResponse()
         return true
     }
     
