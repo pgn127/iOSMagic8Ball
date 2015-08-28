@@ -29,12 +29,11 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deE-SR-XcN">
-                                <rect key="frame" x="279" y="570" width="43" height="30"/>
-                                <state key="normal" title="Shake">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <rect key="frame" x="276" y="570" width="49" height="30"/>
+                                <state key="normal" title="History"/>
                                 <connections>
-                                    <action selector="shakeButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jV1-9g-lzw"/>
+                                    <action selector="loadData:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HHb-OT-oyg"/>
+                                    <segue destination="CQ2-Lu-EqY" kind="presentation" identifier="NextScreen" id="Ffh-5z-Nhu"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="rQg-yY-lse">
@@ -80,6 +79,7 @@
                             <constraint firstItem="3jI-SL-YiX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="TKK-pG-Tud"/>
                             <constraint firstItem="deE-SR-XcN" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="93" id="ZeD-eI-wbV"/>
                             <constraint firstItem="3jI-SL-YiX" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="ahZ-tv-r5x"/>
+                            <constraint firstAttribute="centerX" secondItem="deE-SR-XcN" secondAttribute="centerX" id="cpf-P0-8um"/>
                             <constraint firstAttribute="trailing" secondItem="07H-AX-fkU" secondAttribute="trailing" id="csH-2k-wJm"/>
                             <constraint firstItem="3jI-SL-YiX" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="e1J-59-uch"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="07H-AX-fkU" secondAttribute="bottom" id="ehQ-ag-DNw"/>
@@ -110,6 +110,7 @@
                                 <exclude reference="C7N-jg-V37"/>
                                 <exclude reference="39r-Wo-wXM"/>
                                 <exclude reference="9GB-pH-flu"/>
+                                <exclude reference="G93-gy-glE"/>
                                 <exclude reference="ZeD-eI-wbV"/>
                                 <exclude reference="nyb-yw-Vgm"/>
                             </mask>
@@ -119,13 +120,81 @@
                         <outlet property="answer" destination="sp9-BM-I6U" id="AhV-Ah-04K"/>
                         <outlet property="background" destination="07H-AX-fkU" id="qcW-70-6zB"/>
                         <outlet property="circle" destination="1IY-cH-x9s" id="CTC-Ct-oRY"/>
+                        <outlet property="history" destination="deE-SR-XcN" id="ydI-3Q-w4V"/>
                         <outlet property="ques" destination="3jI-SL-YiX" id="bTL-99-kxq"/>
-                        <outlet property="shake" destination="deE-SR-XcN" id="yf2-gK-Ye7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="273" y="215"/>
+        </scene>
+        <!--Magic 8 Ball History-->
+        <scene sceneID="Vvv-l4-Cd3">
+            <objects>
+                <tableViewController id="f4K-FM-8VM" customClass="HistoryViewController" customModule="Magic_8_Ball" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yHR-AO-dhN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="qrCell" textLabel="dxh-M4-lRb" detailTextLabel="03h-GU-pXY" style="IBUITableViewCellStyleSubtitle" id="qjM-WD-lHp">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qjM-WD-lHp" id="0kG-Bb-WId">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dxh-M4-lRb">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="03h-GU-pXY">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="f4K-FM-8VM" id="4JN-CE-EMs"/>
+                            <outlet property="delegate" destination="f4K-FM-8VM" id="SVe-do-wfA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Magic 8 Ball History" id="ykb-Fs-SFz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="u3w-CB-nbg">
+                            <connections>
+                                <action selector="donePressed:" destination="f4K-FM-8VM" id="i3Y-X7-LC4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="u3w-CB-nbg" id="oKt-Fy-KFx"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UZ4-WM-rVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1668" y="239"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gtz-7b-QUP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CQ2-Lu-EqY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v1s-NJ-ht6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="f4K-FM-8VM" kind="relationship" relationship="rootViewController" id="0bu-Ro-LVY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Rf-eG-gG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="982" y="239"/>
         </scene>
     </scenes>
     <resources>

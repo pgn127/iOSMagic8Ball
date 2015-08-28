@@ -8,15 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate  {
     
     @IBOutlet weak var circle: UIImageView!
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var answer: UILabel!
-    @IBOutlet weak var shake: UIButton!
     @IBOutlet weak var ques: UITextField!
+    @IBOutlet weak var history: UIButton!
     
      let model = EightBallModel(extraResponseArray:["Not a chance!","Perhaps","Most definetely","Maybe","For sure","Yeah right!", "😳"])
+    var questionresponses: [QuestionResponseModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +27,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         var name = "Pamela Needle"
         println(name)
         ques.delegate = self
-        println("Will I get full marks for this lab?")
-        println(model.generateResponse())
-        println("Will the Cronulla sharks receive a premiership this year?")
-        println(model.generateResponse())
-        println("Will I end up becoming a cat person when I get old?")
-        println(model.generateResponse())
+        if let arr = loadQuesResp(){
+            questionresponses = arr
+        }
         
         debugPrintln(model)
         println(model)
@@ -46,6 +44,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+//    func gatherResponse(){
+//        self.answer.text = self.model.generateResponse()
+//        self.questionresponses.append(QuestionResponseModel(question: self.ques.text, response: self.answer.text!))
+//        self.saveQuesResp()
+//    }
     
     func newResponse() {
         
@@ -55,14 +58,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 (finished: Bool) -> Void in
                 //change the text
                 self.answer.text = self.model.generateResponse()
+                //self.answer.text = self.model.generateResponse()
                 UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
                     self.answer.alpha = 1.0
-                }, completion: nil)
+                    }, completion: {finished in
+                        self.questionresponses.append(QuestionResponseModel(question: self.ques.text, response: self.answer.text!))
+                        self.saveQuesResp()
+                    }
+                )
                 
-                })
+        })
         
-    
-    
+        
+        
+        
         var color = arc4random_uniform(7)
         var colorInt = Int(color)
         switch colorInt{
@@ -88,7 +97,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         //hides keyboard
         ques.resignFirstResponder()
-        newResponse()
+        //newResponse()
         return true
     }
     
@@ -99,9 +108,45 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func questionEntered(sender: AnyObject) {
         ques.resignFirstResponder()
     }
+    
 
-    @IBAction func shakeButtonPressed(sender: AnyObject) {
-        newResponse()
+   
+//    @IBAction func historyButtonPressed(sender: UIStoryboardSegue) {
+////        if let sourceViewController = sender.sourceViewController as? ViewController, questionresponses = sourceViewController.questionresponses {
+////            let newIndexPath = NSIndexPath(forRow: questionresponses.count, inSection: 0)
+////            //questionresponses.append(QuestionResponseModel(question: self.ques.text, response: self.answer.text))
+////        }
+//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//        
+//        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("nextScreen") as! HistoryViewController
+//        self.presentViewController(nextViewController, animated:true, completion:nil)
+//    }
+    
+    //MARK: NScoding
+    
+    @IBAction func loadData(sender: AnyObject) {
+        self.performSegueWithIdentifier("NextScreen", sender: sender)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        let vC = segue.destinationViewController as! UINavigationController
+        //let historyVC = segue.destinationViewController as! HistoryViewController
+        let historyVC = vC.viewControllers.first as! HistoryViewController
+        
+        historyVC.historyArray = questionresponses
+    }
+    
+    func saveQuesResp(){
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(questionresponses, toFile: QuestionResponseModel.ArchiveURL.path!)
+        
+        if !isSuccessfulSave{
+            println("Failed to save Question and Response")
+        }
+    }
+    
+    func loadQuesResp() -> [QuestionResponseModel]?{
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(QuestionResponseModel.ArchiveURL.path!) as? [QuestionResponseModel]
+    }
+    
 }
 
