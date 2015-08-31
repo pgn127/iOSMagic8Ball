@@ -52,14 +52,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
     
     func newResponse() {
         
-        UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+        UIView.animateWithDuration(0.75, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
             self.answer.alpha = 0.0
             }, completion: {
                 (finished: Bool) -> Void in
                 //change the text
                 self.answer.text = self.model.generateResponse()
                 //self.answer.text = self.model.generateResponse()
-                UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                UIView.animateWithDuration(0.75, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
                     self.answer.alpha = 1.0
                     }, completion: {finished in
                         self.questionresponses.append(QuestionResponseModel(question: self.ques.text, response: self.answer.text!))
@@ -97,12 +97,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         //hides keyboard
         ques.resignFirstResponder()
-        //newResponse()
+        newResponse()
         return true
     }
     
     func textFieldDidEndEditing(textField: UITextField){
-        newResponse()
+        //newResponse()
     }
 
     @IBAction func questionEntered(sender: AnyObject) {

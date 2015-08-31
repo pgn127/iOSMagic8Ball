@@ -17,8 +17,7 @@ class HistoryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.questionresponses = ViewController.questionresponses
-        //or qacell in
-        //loadQuesResp()
+     
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -27,12 +26,7 @@ class HistoryViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    //helper testing
-    func loadQuesResp(){
-        let q1 = "Will I get full marks for this lab?"
-        let resp1 = "No"
-        historyArray += [QuestionResponseModel(question: q1, response: resp1)]
-    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
