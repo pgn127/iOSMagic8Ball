@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+
 
 class ViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate  {
     
@@ -16,20 +18,28 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
     @IBOutlet weak var ques: UITextField!
     @IBOutlet weak var history: UIButton!
     
-     let model = EightBallModel(extraResponseArray:["Not a chance!","Perhaps","Most definetely","Maybe","For sure","Yeah right!", "😳"])
+//    let responseSound0 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mayes", ofType: "m4a")!)
+//    let responseSound1 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mano", ofType: "m4a")!)
+//    let responseSound2 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("manotachance", ofType: "m4a")!)
+//    let responseSound3 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("maperhaps", ofType: "m4a")!)
+//    let responseSound4 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mamostdefinitely", ofType: "m4a")!)
+//    let responseSound5 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mamaybe", ofType: "m4a")!)
+//    let responseSound6 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("maforsure", ofType: "m4a")!)
+//    let responseSound7 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mayeahright", ofType: "m4a")!)
+    var audiosounds = [NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mayes", ofType: "mp3")!), NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mano", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("manotachance", ofType: "mp3")!), NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("maperhaps", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mamostdefinitely", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mamaybe", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("maforsure", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mayeahright", ofType: "mp3")!)];
+    
+    let model = EightBallModel(extraResponseArray:["Not a chance!","Perhaps","Most definitely","Maybe","For sure","Yeah right!"])
+    var audioPlayer = AVAudioPlayer()
+    
     var questionresponses: [QuestionResponseModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("Pamela Needle")
-        var age = 20.00
-        println("My age is \(age)")
-        var name = "Pamela Needle"
-        println(name)
         ques.delegate = self
         if let arr = loadQuesResp(){
             questionresponses = arr
         }
+        //var audioPlayer = AVAudioPlayer()
         
         debugPrintln(model)
         println(model)
@@ -44,11 +54,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-//    func gatherResponse(){
-//        self.answer.text = self.model.generateResponse()
-//        self.questionresponses.append(QuestionResponseModel(question: self.ques.text, response: self.answer.text!))
-//        self.saveQuesResp()
-//    }
+    func gatherResponse(){
+        var soundindex = self.model.getSoundIndex()
+        var currentsound = audiosounds[soundindex]
+        audioPlayer = AVAudioPlayer(contentsOfURL: currentsound, error:nil)
+        audioPlayer.prepareToPlay()
+        audioPlayer.play()
+        self.answer.text = self.model.generateResponse(soundindex)
+        
+    }
     
     func newResponse() {
         
@@ -57,7 +71,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
             }, completion: {
                 (finished: Bool) -> Void in
                 //change the text
-                self.answer.text = self.model.generateResponse()
+                self.gatherResponse()
                 //self.answer.text = self.model.generateResponse()
                 UIView.animateWithDuration(0.75, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
                     self.answer.alpha = 1.0

@@ -26,11 +26,16 @@ class EightBallModel : Printable, DebugPrintable{
        
         }
     
-    func generateResponse() -> String {
+    func generateResponse(index: Int) -> String {
+        
+        return responseArray![index]
+    }
+    
+    func getSoundIndex() -> Int {
         let numOfResponses = UInt32(responseArray!.count)
         let randomIndex = arc4random_uniform(numOfResponses)
         let ranInt = Int(randomIndex)
-        return responseArray![ranInt]
+        return ranInt
     }
   
 

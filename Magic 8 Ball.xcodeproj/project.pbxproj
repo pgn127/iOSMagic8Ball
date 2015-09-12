@@ -16,8 +16,15 @@
 		6D7F55AF1B79E02A00811CC6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D7F55AD1B79E02A00811CC6 /* LaunchScreen.xib */; };
 		6D7F55BB1B79E02A00811CC6 /* Magic_8_BallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7F55BA1B79E02A00811CC6 /* Magic_8_BallTests.swift */; };
 		6D7F55C51B79EBB900811CC6 /* EightBallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7F55C41B79EBB900811CC6 /* EightBallModel.swift */; };
-		6D7F55C91B7C66DA00811CC6 /* Lab 2 resources in Resources */ = {isa = PBXBuildFile; fileRef = 6D7F55C81B7C66D900811CC6 /* Lab 2 resources */; };
-		6D7F55CB1B7C68E000811CC6 /* Lab 2 resources in Resources */ = {isa = PBXBuildFile; fileRef = 6D7F55CA1B7C68E000811CC6 /* Lab 2 resources */; };
+		6DFD5C921BA3E94E007F98F5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DFD5C911BA3E94E007F98F5 /* AVFoundation.framework */; };
+		6DFD5D1E1BA400AF007F98F5 /* mayes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6DFD5D161BA400AF007F98F5 /* mayes.mp3 */; };
+		6DFD5D1F1BA400AF007F98F5 /* mayeahright.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6DFD5D171BA400AF007F98F5 /* mayeahright.mp3 */; };
+		6DFD5D201BA400AF007F98F5 /* maperhaps.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6DFD5D181BA400AF007F98F5 /* maperhaps.mp3 */; };
+		6DFD5D211BA400AF007F98F5 /* manotachance.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6DFD5D191BA400AF007F98F5 /* manotachance.mp3 */; };
+		6DFD5D221BA400AF007F98F5 /* mano.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6DFD5D1A1BA400AF007F98F5 /* mano.mp3 */; };
+		6DFD5D231BA400AF007F98F5 /* mamostdefinitely.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6DFD5D1B1BA400AF007F98F5 /* mamostdefinitely.mp3 */; };
+		6DFD5D241BA400AF007F98F5 /* mamaybe.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6DFD5D1C1BA400AF007F98F5 /* mamaybe.mp3 */; };
+		6DFD5D251BA400AF007F98F5 /* maforsure.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6DFD5D1D1BA400AF007F98F5 /* maforsure.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +51,15 @@
 		6D7F55B91B79E02A00811CC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D7F55BA1B79E02A00811CC6 /* Magic_8_BallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magic_8_BallTests.swift; sourceTree = "<group>"; };
 		6D7F55C41B79EBB900811CC6 /* EightBallModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EightBallModel.swift; path = ../EightBallModel.swift; sourceTree = "<group>"; };
-		6D7F55C81B7C66D900811CC6 /* Lab 2 resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Lab 2 resources"; path = "../../../Lab 2 resources"; sourceTree = "<group>"; };
-		6D7F55CA1B7C68E000811CC6 /* Lab 2 resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Lab 2 resources"; path = "../../../Lab 2 resources"; sourceTree = "<group>"; };
+		6DFD5C911BA3E94E007F98F5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6DFD5D161BA400AF007F98F5 /* mayes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mayes.mp3; path = "../../../../../../Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/mayes.mp3"; sourceTree = "<group>"; };
+		6DFD5D171BA400AF007F98F5 /* mayeahright.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mayeahright.mp3; path = "../../../../../../Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/mayeahright.mp3"; sourceTree = "<group>"; };
+		6DFD5D181BA400AF007F98F5 /* maperhaps.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = maperhaps.mp3; path = "../../../../../../Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/maperhaps.mp3"; sourceTree = "<group>"; };
+		6DFD5D191BA400AF007F98F5 /* manotachance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = manotachance.mp3; path = "../../../../../../Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/manotachance.mp3"; sourceTree = "<group>"; };
+		6DFD5D1A1BA400AF007F98F5 /* mano.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mano.mp3; path = "../../../../../../Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/mano.mp3"; sourceTree = "<group>"; };
+		6DFD5D1B1BA400AF007F98F5 /* mamostdefinitely.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mamostdefinitely.mp3; path = "../../../../../../Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/mamostdefinitely.mp3"; sourceTree = "<group>"; };
+		6DFD5D1C1BA400AF007F98F5 /* mamaybe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mamaybe.mp3; path = "../../../../../../Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/mamaybe.mp3"; sourceTree = "<group>"; };
+		6DFD5D1D1BA400AF007F98F5 /* maforsure.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = maforsure.mp3; path = "../../../../../../Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/maforsure.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DFD5C921BA3E94E007F98F5 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +84,7 @@
 		6D7F55961B79E02A00811CC6 = {
 			isa = PBXGroup;
 			children = (
+				6DFD5C911BA3E94E007F98F5 /* AVFoundation.framework */,
 				6D7F55A11B79E02A00811CC6 /* Magic 8 Ball */,
 				6D7F55B71B79E02A00811CC6 /* Magic 8 BallTests */,
 				6D7F55A01B79E02A00811CC6 /* Products */,
@@ -93,7 +109,6 @@
 				6D7F55A61B79E02A00811CC6 /* ViewController.swift */,
 				6D6132311B8AABC3003911B6 /* QuestionResponseModel.swift */,
 				6D7F55A81B79E02A00811CC6 /* Main.storyboard */,
-				6D7F55CA1B7C68E000811CC6 /* Lab 2 resources */,
 				6D7F55AB1B79E02A00811CC6 /* Images.xcassets */,
 				6D7F55AD1B79E02A00811CC6 /* LaunchScreen.xib */,
 				6D7F55A21B79E02A00811CC6 /* Supporting Files */,
@@ -104,7 +119,14 @@
 		6D7F55A21B79E02A00811CC6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6D7F55C81B7C66D900811CC6 /* Lab 2 resources */,
+				6DFD5D161BA400AF007F98F5 /* mayes.mp3 */,
+				6DFD5D171BA400AF007F98F5 /* mayeahright.mp3 */,
+				6DFD5D181BA400AF007F98F5 /* maperhaps.mp3 */,
+				6DFD5D191BA400AF007F98F5 /* manotachance.mp3 */,
+				6DFD5D1A1BA400AF007F98F5 /* mano.mp3 */,
+				6DFD5D1B1BA400AF007F98F5 /* mamostdefinitely.mp3 */,
+				6DFD5D1C1BA400AF007F98F5 /* mamaybe.mp3 */,
+				6DFD5D1D1BA400AF007F98F5 /* maforsure.mp3 */,
 				6D7F55A31B79E02A00811CC6 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -208,10 +230,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D7F55AA1B79E02A00811CC6 /* Main.storyboard in Resources */,
+				6DFD5D221BA400AF007F98F5 /* mano.mp3 in Resources */,
+				6DFD5D251BA400AF007F98F5 /* maforsure.mp3 in Resources */,
+				6DFD5D211BA400AF007F98F5 /* manotachance.mp3 in Resources */,
 				6D7F55AF1B79E02A00811CC6 /* LaunchScreen.xib in Resources */,
+				6DFD5D1F1BA400AF007F98F5 /* mayeahright.mp3 in Resources */,
+				6DFD5D231BA400AF007F98F5 /* mamostdefinitely.mp3 in Resources */,
+				6DFD5D1E1BA400AF007F98F5 /* mayes.mp3 in Resources */,
+				6DFD5D241BA400AF007F98F5 /* mamaybe.mp3 in Resources */,
+				6DFD5D201BA400AF007F98F5 /* maperhaps.mp3 in Resources */,
 				6D7F55AC1B79E02A00811CC6 /* Images.xcassets in Resources */,
-				6D7F55CB1B7C68E000811CC6 /* Lab 2 resources in Resources */,
-				6D7F55C91B7C66DA00811CC6 /* Lab 2 resources in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
