@@ -65,7 +65,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
 //        }catch {
 //            print(error)
 //        }
-        self.answer.text = self.model.generateResponse()
+        let newresponse = self.model.generateResponse()
+        let utterance = AVSpeechUtterance(string: newresponse)
+        //utterance.voice = AVSpeechSynthesisVoice(language:
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speakUtterance(utterance)
+        self.answer.text = newresponse
         
     }
     
