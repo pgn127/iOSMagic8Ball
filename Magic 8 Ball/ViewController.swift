@@ -28,7 +28,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
 //    let responseSound7 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mayeahright", ofType: "m4a")!)
     var audiosounds = [NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mayes", ofType: "mp3")!), NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mano", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("manotachance", ofType: "mp3")!), NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("maperhaps", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mamostdefinitely", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mamaybe", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("maforsure", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mayeahright", ofType: "mp3")!)];
     
-    let model = EightBallModel(extraResponseArray:["Not a chance!","Perhaps","Most definitely","Maybe","For sure","Yeah right!"])
+    let model = EightBallModel(extraResponseArray:[NSLocalizedString("Not a chance!", comment:"notachance"), NSLocalizedString("Perhaps!",comment:"perhaps"), NSLocalizedString("Most definitely", comment:"mostdef"), NSLocalizedString("Maybe",comment:"maybe"), NSLocalizedString("For sure", comment: "forsure"), NSLocalizedString("Yeah right!", comment:"yeahright")])
     var audioPlayer = AVAudioPlayer()
     
     var questionresponses: [QuestionResponseModel] = []
@@ -41,8 +41,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
         }
         //var audioPlayer = AVAudioPlayer()
         
-        debugPrintln(model)
-        println(model)
+        debugPrint(model)
+        print(model)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -55,12 +55,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
         // Dispose of any resources that can be recreated.
     }
     func gatherResponse(){
-        var soundindex = self.model.getSoundIndex()
-        var currentsound = audiosounds[soundindex]
-        audioPlayer = AVAudioPlayer(contentsOfURL: currentsound, error:nil)
-        audioPlayer.prepareToPlay()
-        audioPlayer.play()
-        self.answer.text = self.model.generateResponse(soundindex)
+//        let soundindex = self.model.getRandomResponse()
+////        let currentsound = audiosounds[soundindex]
+//        do{
+//        audioPlayer = try AVAudioPlayer(contentsOfURL: currentsound)
+//        audioPlayer.prepareToPlay()
+//        audioPlayer.play()
+//        self.answer.text = self.model.generateResponse(soundindex)
+//        }catch {
+//            print(error)
+//        }
+        self.answer.text = self.model.generateResponse()
         
     }
     
@@ -76,7 +81,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
                 UIView.animateWithDuration(0.75, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
                     self.answer.alpha = 1.0
                     }, completion: {finished in
-                        self.questionresponses.append(QuestionResponseModel(question: self.ques.text, response: self.answer.text!))
+                        self.questionresponses.append(QuestionResponseModel(question: self.ques.text!, response: self.answer.text!))
                         self.saveQuesResp()
                     }
                 )
@@ -86,8 +91,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
         
         
         
-        var color = arc4random_uniform(7)
-        var colorInt = Int(color)
+        let color = arc4random_uniform(7)
+        let colorInt = Int(color)
         switch colorInt{
         case 1:
             circle.image = UIImage(named: "circle1")
@@ -154,7 +159,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(questionresponses, toFile: QuestionResponseModel.ArchiveURL.path!)
         
         if !isSuccessfulSave{
-            println("Failed to save Question and Response")
+            print("Failed to save Question and Response")
         }
     }
     

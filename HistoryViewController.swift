@@ -50,7 +50,7 @@ class HistoryViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("qrCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("qrCell", forIndexPath: indexPath) 
         //cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "qrCell")
         let qrModel = historyArray[indexPath.row]
         cell.textLabel!.text = qrModel.question
@@ -103,7 +103,7 @@ class HistoryViewController: UITableViewController {
 
     @IBAction func donePressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(false, completion: nil)
-        println("done")
+        print("done")
     }
     // In a storyboard-based application, you will often want to do a little preparation before navigation
 //    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?, historyArray: [QuestionResponseModel]) {

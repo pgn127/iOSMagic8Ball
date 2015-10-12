@@ -38,7 +38,7 @@ class QuestionResponseModel: NSObject, NSCoding{
         aCoder.encodeObject(response, forKey: PropertyKey.respKey)
     }
     
-    required convenience init(coder aDecoder: NSCoder){
+    required convenience init?(coder aDecoder: NSCoder){
         let question = aDecoder.decodeObjectForKey(PropertyKey.quesKey) as! String
         let response = aDecoder.decodeObjectForKey(PropertyKey.respKey) as! String
         self.init(question: question, response: response)

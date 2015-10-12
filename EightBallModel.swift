@@ -8,17 +8,17 @@
 
 import Foundation
 
-class EightBallModel : Printable, DebugPrintable{
+class EightBallModel : CustomStringConvertible, CustomDebugStringConvertible{
     let initialResponseArray : Array<String>
     var responseArray : [String]?
 
     init() {
-        initialResponseArray = ["Yes","No"]
+        initialResponseArray = [NSLocalizedString("Yes",comment: "yes"), NSLocalizedString("No",comment:"no")]
         responseArray = initialResponseArray
     }
 
     init(extraResponseArray : Array<String>){
-        initialResponseArray = ["Yes","No"]
+        initialResponseArray = [NSLocalizedString("Yes",comment: "yes"), NSLocalizedString("No",comment:"no")]
         responseArray = initialResponseArray
         for str in extraResponseArray {
             responseArray!.append(str)
@@ -26,17 +26,19 @@ class EightBallModel : Printable, DebugPrintable{
        
         }
     
-    func generateResponse(index: Int) -> String {
-        
-        return responseArray![index]
-    }
-    
-    func getSoundIndex() -> Int {
+    func generateResponse() -> String {
         let numOfResponses = UInt32(responseArray!.count)
         let randomIndex = arc4random_uniform(numOfResponses)
         let ranInt = Int(randomIndex)
-        return ranInt
+        return responseArray![ranInt]
     }
+    
+//    func getSoundIndex() -> Int {
+//        let numOfResponses = UInt32(responseArray!.count)
+//        let randomIndex = arc4random_uniform(numOfResponses)
+//        let ranInt = Int(randomIndex)
+//        return ranInt
+//    }
   
 
 
