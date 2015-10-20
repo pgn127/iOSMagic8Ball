@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 
 
+
 class ViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate  {
     
     @IBOutlet weak var circle: UIImageView!
@@ -18,27 +19,30 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
     @IBOutlet weak var ques: UITextField!
     @IBOutlet weak var history: UIButton!
     
-//    let responseSound0 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mayes", ofType: "m4a")!)
-//    let responseSound1 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mano", ofType: "m4a")!)
-//    let responseSound2 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("manotachance", ofType: "m4a")!)
-//    let responseSound3 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("maperhaps", ofType: "m4a")!)
-//    let responseSound4 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mamostdefinitely", ofType: "m4a")!)
-//    let responseSound5 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mamaybe", ofType: "m4a")!)
-//    let responseSound6 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("maforsure", ofType: "m4a")!)
-//    let responseSound7 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mayeahright", ofType: "m4a")!)
-    var audiosounds = [NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mayes", ofType: "mp3")!), NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mano", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("manotachance", ofType: "mp3")!), NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("maperhaps", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mamostdefinitely", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mamaybe", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("maforsure", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mayeahright", ofType: "mp3")!)];
+
+//    var audiosounds = [NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mayes", ofType: "mp3")!), NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mano", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("manotachance", ofType: "mp3")!), NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("maperhaps", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mamostdefinitely", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mamaybe", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("maforsure", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mayeahright", ofType: "mp3")!)];
     
     let model = EightBallModel(extraResponseArray:[NSLocalizedString("Not a chance!", comment:"notachance"), NSLocalizedString("Perhaps!",comment:"perhaps"), NSLocalizedString("Most definitely", comment:"mostdef"), NSLocalizedString("Maybe",comment:"maybe"), NSLocalizedString("For sure", comment: "forsure"), NSLocalizedString("Yeah right!", comment:"yeahright")])
     var audioPlayer = AVAudioPlayer()
+    let postURL =  "http://li859-75.members.linode.com/addEntry.php"
+    let user = "pgn342"
     
     var questionresponses: [QuestionResponseModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ques.delegate = self
-        if let arr = loadQuesResp(){
-            questionresponses = arr
-        }
+//        if let arr = loadQuesResp(){
+//            questionresponses = arr
+//        }
+//        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(this.CONNECTIVITY_SERVICE);
+//        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+//        
+//        if( networkInfo != null && networkInfo.isConnected()) {
+//            newDownloadTask().execute("http://li859-75.members.linode.com/retrieveAllEntries.php");
+//        } else {
+//            Log.e("Error","networking not avail");
+//        }
         //var audioPlayer = AVAudioPlayer()
         
         debugPrint(model)
@@ -71,6 +75,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
         let synthesizer = AVSpeechSynthesizer()
         synthesizer.speakUtterance(utterance)
         self.answer.text = newresponse
+        postQuesResp()
         
     }
     
@@ -86,8 +91,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
                 UIView.animateWithDuration(0.75, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
                     self.answer.alpha = 1.0
                     }, completion: {finished in
-                        self.questionresponses.append(QuestionResponseModel(question: self.ques.text!, response: self.answer.text!))
-                        self.saveQuesResp()
+//                        self.questionresponses.append(QuestionResponseModel(question: self.ques.text!, response: self.answer.text!))
+                        self.postQuesResp()
                     }
                 )
                 
@@ -149,7 +154,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
     //MARK: NScoding
     
     @IBAction func loadData(sender: AnyObject) {
-        self.performSegueWithIdentifier("NextScreen", sender: sender)
+       // self.performSegueWithIdentifier("NextScreen", sender: sender)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
@@ -160,17 +165,31 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
         historyVC.historyArray = questionresponses
     }
     
-    func saveQuesResp(){
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(questionresponses, toFile: QuestionResponseModel.ArchiveURL.path!)
+    func postQuesResp(){
+
         
-        if !isSuccessfulSave{
-            print("Failed to save Question and Response")
+        var url: NSURL = NSURL(string: postURL)!
+        var request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        let postString = "question=\(ques.text!)&answer=\(answer.text!)&username=\(self.user)"
+        request.HTTPMethod = "POST"
+        request.setValue("application/x-www=form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+
         }
+        task.resume()
+      
     }
     
-    func loadQuesResp() -> [QuestionResponseModel]?{
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(QuestionResponseModel.ArchiveURL.path!) as? [QuestionResponseModel]
-    }
+//    func loadQuesResp() -> [QuestionResponseModel]?{
+//        return NSKeyedUnarchiver.unarchiveObjectWithFile(QuestionResponseModel.ArchiveURL.path!) as? [QuestionResponseModel]
+//    }
     
 }
 
