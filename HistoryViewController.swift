@@ -36,7 +36,7 @@ class HistoryViewController: UITableViewController {
     func retrieveData(){
         let urlComponents = NSURLComponents(string: baseURL)!
         let url = urlComponents.URL!
-        //print("url is: \(url)")
+        print("url is: \(url)")
         
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: url)
@@ -50,8 +50,7 @@ class HistoryViewController: UITableViewController {
                 } else if let d = data, let r = response as? NSHTTPURLResponse {
                     
                     if (r.statusCode == 200){
-                        
-                        let result = NSString(data: d, encoding:NSUTF8StringEncoding)! as String
+                        let result: String = NSString(data: d, encoding:NSUTF8StringEncoding)! as String
                         print("result is \(result)")
                         //do {
                         //let json = JSON(data: d)
@@ -81,8 +80,9 @@ class HistoryViewController: UITableViewController {
                            // print("json parsing error \(error.localizedDescription)")
                         //}
                         self.dataRetrieved = true
-                        print("about to reload data")
+                        
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            print("about to reload data")
                             self.tableView.reloadData()
                         })
                         
