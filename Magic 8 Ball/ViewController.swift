@@ -20,7 +20,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
     @IBOutlet weak var history: UIButton!
     
 
-//    var audiosounds = [NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mayes", ofType: "mp3")!), NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mano", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("manotachance", ofType: "mp3")!), NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("maperhaps", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mamostdefinitely", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mamaybe", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("maforsure", ofType: "mp3")!),NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mayeahright", ofType: "mp3")!)];
     
     let model = EightBallModel(extraResponseArray:[NSLocalizedString("Not a chance!", comment:"notachance"), NSLocalizedString("Perhaps!",comment:"perhaps"), NSLocalizedString("Most definitely", comment:"mostdef"), NSLocalizedString("Maybe",comment:"maybe"), NSLocalizedString("For sure", comment: "forsure"), NSLocalizedString("Yeah right!", comment:"yeahright")])
     var audioPlayer = AVAudioPlayer()
@@ -92,7 +91,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
                     self.answer.alpha = 1.0
                     }, completion: {finished in
 //                        self.questionresponses.append(QuestionResponseModel(question: self.ques.text!, response: self.answer.text!))
-                        self.postQuesResp()
+                        //self.postQuesResp()
                     }
                 )
                 
@@ -166,14 +165,19 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
     }
     
     func postQuesResp(){
-
-        
         var url: NSURL = NSURL(string: postURL)!
         var request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
         let postString = "question=\(ques.text!)&answer=\(answer.text!)&username=\(self.user)"
+        //let postString = "question=hello&answer=hello&username=\(self.user)"
+        let postData = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        let postLength: NSString = String(postData!.length)
         request.HTTPMethod = "POST"
-        request.setValue("application/x-www=form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
+        request.setValue("application/x-www-form-urlencoded charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.HTTPBody = postData
+        
+        
+        //request.setValue("application/json", forHTTPHeaderField: "Accept")
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
             
@@ -181,6 +185,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
                 print("error=\(error)")
                 return
             }
+            print(" DATA IS \(NSString(data: data!, encoding:NSUTF8StringEncoding)! as String)")
+            if let d = data {
+            //let result: String = NSString(data: d, encoding:NSUTF8StringEncoding)! as String
+            //print("result is \(result)")
+            }
+            
 
         }
         task.resume()

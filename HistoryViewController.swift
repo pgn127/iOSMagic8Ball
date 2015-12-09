@@ -36,7 +36,7 @@ class HistoryViewController: UITableViewController {
     func retrieveData(){
         let urlComponents = NSURLComponents(string: baseURL)!
         let url = urlComponents.URL!
-        print("url is: \(url)")
+        //print("url is: \(url)")
         
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: url)
@@ -51,18 +51,18 @@ class HistoryViewController: UITableViewController {
                     
                     if (r.statusCode == 200){
                         let result: String = NSString(data: d, encoding:NSUTF8StringEncoding)! as String
-                        print("result is \(result)")
+                        //print("result is \(result)")
                         //do {
                         //let json = JSON(data: d)
                         if let data = result.dataUsingEncoding(NSUTF8StringEncoding) {
                             let json = JSON(data: data)
                             
                             for item in json.arrayValue {
-                                print("looping through json keys and values")
+                                //print("looping through json keys and values")
                                 if let ques = item["question"].string, answ = item["answer"].string, user = item["username"].string, img = item["imageURL"].string {
                                     self.historyArray.append(QuestionResponseModel(question: ques, response: answ, user: user, imageURL: img))
-                                    print("history array count \(self.historyArray.count)")
-                                    print("question\(ques)")
+                                    //print("history array count \(self.historyArray.count)")
+                                    //print("question\(ques)")
                                 }
 
                             }
@@ -82,7 +82,7 @@ class HistoryViewController: UITableViewController {
                         self.dataRetrieved = true
                         
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            print("about to reload data")
+                            //print("about to reload data")
                             self.tableView.reloadData()
                         })
                         
@@ -141,20 +141,20 @@ class HistoryViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        print("num of cells \(historyArray.count)")
+        //print("num of cells \(historyArray.count)")
         return historyArray.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print("loading tableview")
+        //print("loading tableview")
         let cell = tableView.dequeueReusableCellWithIdentifier("qrCell", forIndexPath: indexPath) 
         //cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "qrCell")
         let userpic = cell.contentView.viewWithTag(1) as! UIImageView
         let ques = cell.contentView.viewWithTag(2) as! UILabel
         let resp = cell.contentView.viewWithTag(3)as! UILabel
         if dataRetrieved {
-            print("data avaialble and about to be loaded")
+            //print("data avaialble and about to be loaded")
         let qrModel = historyArray[indexPath.row]
         //userpic.image = UIImage(qrModel.imageURL)
         ques.text = qrModel.question
@@ -220,7 +220,7 @@ class HistoryViewController: UITableViewController {
 
     @IBAction func donePressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(false, completion: nil)
-        print("done")
+        //print("done")
     }
     // In a storyboard-based application, you will often want to do a little preparation before navigation
 //    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?, historyArray: [QuestionResponseModel]) {
