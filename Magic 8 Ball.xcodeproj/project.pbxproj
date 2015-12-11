@@ -156,6 +156,7 @@
 		6D7F55971B79E02A00811CC6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Pamela Needle";
 				TargetAttributes = {
@@ -409,6 +410,7 @@
 				6D7F55C01B79E02A00811CC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6D7F55C11B79E02A00811CC6 /* Build configuration list for PBXNativeTarget "Magic 8 BallTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +419,7 @@
 				6D7F55C31B79E02A00811CC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
