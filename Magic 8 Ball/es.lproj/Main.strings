@@ -1,0 +1,18 @@
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "03h-GU-pXY"; */
+"03h-GU-pXY.text" = "subtitulo";
+
+/* Class = "UITextField"; placeholder = "Ask a question..."; ObjectID = "3jI-SL-YiX"; */
+"3jI-SL-YiX.placeholder" = "Haz una pregunta...";
+
+/* Class = "UIButton"; normalTitle = "History"; ObjectID = "deE-SR-XcN"; */
+"deE-SR-XcN.normalTitle" = "historia";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "dxh-M4-lRb"; */
+"dxh-M4-lRb.text" = "titulo";
+
+/* Class = "UILabel"; text = "Label Label Label Label Label Label Label Label Label"; ObjectID = "sp9-BM-I6U"; */
+"sp9-BM-I6U.text" = "etiqueta";
+
+/* Class = "UINavigationItem"; title = "Magic 8 Ball History"; ObjectID = "ykb-Fs-SFz"; */
+"ykb-Fs-SFz.title" = "historia de la magia ocho bolas";
+

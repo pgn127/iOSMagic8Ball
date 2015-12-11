@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="Magic 8 Ball/Base.lproj/LaunchScreen.xib" source-language="en" datatype="plaintext" target-language="es">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="6.4" build-num="6E35b"/>
+    </header>
+    <body>
+      <trans-unit id="8ie-xW-0ye.text">
+        <source>  Copyright (c) 2015 Pamela Needle. All rights reserved.</source>
+        <target>  Derechos de (c) 2015 Pamela Needle. Reservados todos los derechos.</target>
+        <note>Class = "UILabel"; text = "  Copyright (c) 2015 Pamela Needle. All rights reserved."; ObjectID = "8ie-xW-0ye";</note>
+      </trans-unit>
+      <trans-unit id="kId-c2-rCX.text">
+        <source>Magic 8 Ball</source>
+        <target>Magia Bola ocho</target>
+        <note>Class = "UILabel"; text = "Magic 8 Ball"; ObjectID = "kId-c2-rCX";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Magic 8 Ball/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="es">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="6.4" build-num="6E35b"/>
+    </header>
+    <body>
+      <trans-unit id="03h-GU-pXY.text">
+        <source>Subtitle</source>
+        <target>subtitulo</target>
+        <note>Class = "UILabel"; text = "Subtitle"; ObjectID = "03h-GU-pXY";</note>
+      </trans-unit>
+      <trans-unit id="3jI-SL-YiX.placeholder">
+        <source>Ask a question...</source>
+        <target>Haz una pregunta...</target>
+        <note>Class = "UITextField"; placeholder = "Ask a question..."; ObjectID = "3jI-SL-YiX";</note>
+      </trans-unit>
+      <trans-unit id="deE-SR-XcN.normalTitle">
+        <source>History</source>
+        <target>historia</target>
+        <note>Class = "UIButton"; normalTitle = "History"; ObjectID = "deE-SR-XcN";</note>
+      </trans-unit>
+      <trans-unit id="dxh-M4-lRb.text">
+        <source>Title</source>
+        <target>titulo</target>
+        <note>Class = "UILabel"; text = "Title"; ObjectID = "dxh-M4-lRb";</note>
+      </trans-unit>
+      <trans-unit id="sp9-BM-I6U.text">
+        <source>Label Label Label Label Label Label Label Label Label</source>
+        <target>etiqueta</target>
+        <note>Class = "UILabel"; text = "Label Label Label Label Label Label Label Label Label"; ObjectID = "sp9-BM-I6U";</note>
+      </trans-unit>
+      <trans-unit id="ykb-Fs-SFz.title">
+        <source>Magic 8 Ball History</source>
+        <target>historia de la magia ocho bolas</target>
+        <note>Class = "UINavigationItem"; title = "Magic 8 Ball History"; ObjectID = "ykb-Fs-SFz";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Magic 8 Ball/Info.plist" source-language="en" datatype="plaintext" target-language="es">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="6.4" build-num="6E35b"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Magic 8 BallTests/Info.plist" source-language="en" datatype="plaintext" target-language="es">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="6.4" build-num="6E35b"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="en.lproj/Localizable.strings" source-language="en" datatype="plaintext" target-language="es">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="6.4" build-num="6E35b"/>
+    </header>
+    <body>
+      <trans-unit id="For sure">
+        <source>For sure</source>
+        <note>forsure</note>
+      </trans-unit>
+      <trans-unit id="Maybe">
+        <source>Maybe</source>
+        <note>maybe</note>
+      </trans-unit>
+      <trans-unit id="Most definitely">
+        <source>Most definitely</source>
+        <note>mostdef</note>
+      </trans-unit>
+      <trans-unit id="No">
+        <source>No</source>
+        <note>no</note>
+      </trans-unit>
+      <trans-unit id="Not a chance!">
+        <source>Not a chance!</source>
+        <note>notachance</note>
+      </trans-unit>
+      <trans-unit id="Perhaps!">
+        <source>Perhaps!</source>
+        <note>perhaps</note>
+      </trans-unit>
+      <trans-unit id="Yeah right!">
+        <source>Yeah right!</source>
+        <note>yeahright</note>
+      </trans-unit>
+      <trans-unit id="Yes">
+        <source>Yes</source>
+        <note>yes</note>
+      </trans-unit>
+      <trans-unit id="forsure">
+        <source>For sure</source>
+        <target>por supuesto</target>
+      </trans-unit>
+      <trans-unit id="maybe">
+        <source>Maybe</source>
+        <target>puede ser</target>
+      </trans-unit>
+      <trans-unit id="mostdef">
+        <source>Most definitely</source>
+        <target>definitivamente</target>
+      </trans-unit>
+      <trans-unit id="no">
+        <source>No</source>
+        <target>No</target>
+      </trans-unit>
+      <trans-unit id="notachance">
+        <source>Not a chance!</source>
+        <target>no una oportunidad!</target>
+      </trans-unit>
+      <trans-unit id="perhaps">
+        <source>Perhaps!</source>
+        <target>quizas!</target>
+      </trans-unit>
+      <trans-unit id="yeahright">
+        <source>Yeah right!</source>
+        <target>sí a la derecha!</target>
+      </trans-unit>
+      <trans-unit id="yes">
+        <source>Yes</source>
+        <target>Si</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
