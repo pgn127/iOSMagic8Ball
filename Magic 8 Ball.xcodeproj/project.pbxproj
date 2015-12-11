@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6D019C7A1BD647B200A732D1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D019C791BD647B200A732D1 /* SwiftyJSON.swift */; settings = {ASSET_TAGS = (); }; };
 		6D1827511BAA8ED50072E8D1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D1827531BAA8ED50072E8D1 /* Localizable.strings */; };
 		6D1827581BAA93550072E8D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D18275A1BAA93550072E8D1 /* InfoPlist.strings */; };
 		6D18275D1BAA93550072E8D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D18275F1BAA93550072E8D1 /* InfoPlist.strings */; };
+		6D1DA7EB1C1B5C8E00A9C30D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1DA7EA1C1B5C8E00A9C30D /* SwiftyJSON.swift */; };
 		6D6132321B8AABC3003911B6 /* QuestionResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6132311B8AABC3003911B6 /* QuestionResponseModel.swift */; };
 		6D6132361B8C5454003911B6 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6132351B8C5454003911B6 /* HistoryViewController.swift */; };
 		6D7F55A51B79E02A00811CC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7F55A41B79E02A00811CC6 /* AppDelegate.swift */; };
@@ -42,13 +42,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6D019C791BD647B200A732D1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		6D18274D1BAA8B4B0072E8D1 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		6D18274E1BAA8B4B0072E8D1 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		6D1827541BAA8EE70072E8D1 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6D1827551BAA8EE80072E8D1 /* es */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6D1827591BAA93550072E8D1 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6D18275E1BAA93550072E8D1 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6D1DA7EA1C1B5C8E00A9C30D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		6D5C7AFB1BCB388D00E93507 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6D6132311B8AABC3003911B6 /* QuestionResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionResponseModel.swift; sourceTree = "<group>"; };
 		6D6132351B8C5454003911B6 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryViewController.swift; path = ../HistoryViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 		6D7F55961B79E02A00811CC6 = {
 			isa = PBXGroup;
 			children = (
-				6D019C791BD647B200A732D1 /* SwiftyJSON.swift */,
+				6D1DA7EA1C1B5C8E00A9C30D /* SwiftyJSON.swift */,
 				6D1827531BAA8ED50072E8D1 /* Localizable.strings */,
 				6DFD5C911BA3E94E007F98F5 /* AVFoundation.framework */,
 				6D7F55A11B79E02A00811CC6 /* Magic 8 Ball */,
@@ -282,7 +282,7 @@
 				6D7F55A71B79E02A00811CC6 /* ViewController.swift in Sources */,
 				6D7F55A51B79E02A00811CC6 /* AppDelegate.swift in Sources */,
 				6D6132321B8AABC3003911B6 /* QuestionResponseModel.swift in Sources */,
-				6D019C7A1BD647B200A732D1 /* SwiftyJSON.swift in Sources */,
+				6D1DA7EB1C1B5C8E00A9C30D /* SwiftyJSON.swift in Sources */,
 				6D6132361B8C5454003911B6 /* HistoryViewController.swift in Sources */,
 				6D7F55C51B79EBB900811CC6 /* EightBallModel.swift in Sources */,
 			);
