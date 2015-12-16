@@ -1,7 +1,7 @@
 # iOSMagic8Ball
 Magic 8 Ball for iOS
 
-This Magic 8 Ball app was created to satisfy CSC346- Mobile Applications lab component. 
+This Magic 8 Ball app was created to satisfy CSCI346- Mobile Applications lab component. 
 ![Img] (https://raw.github.com/pgn127/iOSMagic8Ball/master/engstart.png)
 ![Img] (https://raw.github.com/pgn127/iOSMagic8Ball/master/responseimg.png)
 
@@ -21,6 +21,7 @@ This application is useable by VoiceOver and uses AVSpeechUtterance. It reads th
 All questions and responses are sent to a web service via POST requests. Clicking the History button allows the user to view all question, responses, and user images of students using this application.
 * users are added to the database through: http://li859-75.members.linode.com/addUser.html
 * NOTE: To test the server add an entry with http://li859-75.members.linode.com/addEntryTest.html . If you receive an OK from the server, it works.
+
 ![Img] (https://raw.github.com/pgn127/iOSMagic8Ball/master/history.png)
 
 
